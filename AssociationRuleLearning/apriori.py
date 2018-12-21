@@ -12,3 +12,12 @@ for i in range(0,7501):
 #training Apriori on the dataset
 from apyori import apriori
 rules = apriori(transactions, min_support = 0.003 ,min_confidence = 0.2 ,min_lift = 3 ,min_lenght = 2)
+
+#visualizing results
+results = list(rules)
+results_list = []
+for i in range(0, len(results)):
+    results_list.append('RULE:\t' + str(results[i][0]) +
+                            '\nSUPPORT:\t' + str(results[i][1]) +
+                            '\nCONF:\t' + str(results[i][2][0][2]) +
+                            '\nLIFT:\t' + str(results[i][2][0][3]))
